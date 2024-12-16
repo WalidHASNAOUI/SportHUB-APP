@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const publicationSchema = new mongoose.Schema({
   content: { 
@@ -28,5 +28,5 @@ const publicationSchema = new mongoose.Schema({
     }
 });
 
-
-module.exports = mongoose.model('Publication', publicationSchema);
+const Publication = mongoose.model('Publication', publicationSchema);
+export default Publication;

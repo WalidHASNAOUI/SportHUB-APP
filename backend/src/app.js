@@ -1,25 +1,14 @@
-require('dotenv').config();
-const express = require('express'); 
-const connectDB = require('./config/db.js'); 
+import express from 'express';
+import dotenv from 'dotenv';
+import { errorHandler } from "./middlewares/error.middleware.js";
+import routes from "./routes/index.js";
 
+dotenv.config();
 
-const app = express(); 
+const app = express();
 
+app.use(express.json());
+app.use(errorHandler);
+app.use("/api", routes);
 
-// connect to MongoDB
-connectDB(); 
-
-
-// Middleware and Routes 
-app.use(express.json()); 
-app.get('/api/test', (req, res) => {
-    res.status(200).json({ message : 'Server and Database are working!'})
-}); 
-// app.use('/api/users', require('/routes/userRoutes')); 
-// app.use('/api/users', require('routes/eventRoutes')); 
-
-
-const PORT = process.env.PORT || 3000; 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`); 
-})
+export default app;
