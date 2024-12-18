@@ -13,20 +13,20 @@ const userSchema = new mongoose.Schema({
 },
   password: { 
     type: String, 
-    required: true 
+    required: true
 },
-  favoriteSports: [
-    { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Sport' 
-    }
-],
   createdAt: { 
     type: Date, 
     default: Date.now 
 }
 });
 
+// favoriteSports: [
+//   {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: 'Sport'
+//   }
+// ]
 
 const User = mongoose.model('User', userSchema);
 export default User;

@@ -4,13 +4,17 @@ import {
   getAllUsers, 
   getUserById, 
   updateUser, 
-  deleteUser 
+  deleteUser, 
+  loginUser
 } from '../controllers/user.controller.js'; // Adjust path if needed
 
 const router = express.Router();
 
+// User Login 
+router.post('/login', loginUser)
+
 // Create a new user
-router.post('/', createUser);
+router.post('/signup', createUser);
 
 // Get all users
 router.get('/', getAllUsers);

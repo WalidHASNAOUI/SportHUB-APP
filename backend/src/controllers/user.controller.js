@@ -1,38 +1,66 @@
 import User from '../models/user.model.js'; // Adjust path if needed
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+
+const JWT_SECRET = process.env.JWT_SECRET || 'R_Hy7GjjiLCK'; // Use an env variable for secret
+
+export const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // Find user by email
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid email or password' });
+    }
+
+    // Compare passwords using bcrypt
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Invalid email or password' });
+    }
+
+    // Generate JWT token
+    const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, {
+      expiresIn: '1h', // Token expires in 1 hour
+    });
+
+    // Respond with the token
+    res.status(200).json({ token });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
 
 // Create a new user
 export const createUser = async (req, res) => {
   try {
-    const { username, email, password, favoriteSports } = req.body;
+    const { username, email, password } = req.body;
 
-    // Check if user already exists
-    const userExists = await User.findOne({ $or: [{ username }, { email }] });
-    if (userExists) {
-      return res.status(400).json({ message: 'User already exists' });
+    // Check if the user already exists
+    console.log(email);
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "User already exists" });
     }
 
-    // Hash password
+    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user
+    // Create a new user
     const newUser = new User({
       username,
       email,
       password: hashedPassword,
-      favoriteSports
     });
 
-    // Save user to database
+    // Save the user to the database
     await newUser.save();
 
-    // Generate JWT token
-    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-    res.status(201).json({ message: 'User created successfully', token });
+    res.status(201).json({ message: "User created successfully" });
   } catch (error) {
-    res.status(500).json({ message: 'Server error', error });
+    console.error("Error during user signup:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 };
 
