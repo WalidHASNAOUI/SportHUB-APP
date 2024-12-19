@@ -11,18 +11,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
   standalone: true
 })
-export class LoginComponent 
+
+export class LoginComponent
 {
   loginForm: FormGroup;
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(
+    private fb: FormBuilder, 
+    private http: HttpClient, 
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-  
 
   onSubmit() {
     if (this.loginForm.invalid) {
@@ -31,7 +35,7 @@ export class LoginComponent
 
     const formData = this.loginForm.value;
 
-    this.http.post('http://localhost:5000/api/users', formData).subscribe({
+    this.http.post('http://localhost:5000/api/users/login', formData).subscribe({
       next: (response: any) => {
         // Handle successful login
         localStorage.setItem('authToken', response.token);
@@ -42,13 +46,5 @@ export class LoginComponent
         this.errorMessage = 'Invalid email or password';
       },
     });
-  }
-
-  onLogin() {
-    // Example login logic
-    console.log('Login submitted');
-    
-    // Navigate to the dashboard after successful login
-    this.router.navigate(['/dashboard']);
   }
 }
