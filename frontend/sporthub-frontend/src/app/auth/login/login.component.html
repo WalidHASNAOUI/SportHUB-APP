@@ -1,40 +1,59 @@
-<div class="login-container">
-  <h2>Login</h2>
+<div class="app-container">
+  <div class="header">
+    <img src="images/logoPNG.png" alt="App logo" class="app-logo" />
+    <h2 class="app-title">Sign in</h2>
+  </div>
   
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        class="form-control"
-        [class.is-invalid]="loginForm.controls['email'].touched && loginForm.controls['email'].invalid"
-      />
-      <div *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.['required']" class="invalid-feedback">
-        Email is required
-      </div>
-      <div *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.['email']" class="invalid-feedback">
-        Please enter a valid email address
+  <div class="content-wrapper">
+    <div class="login-container">
+      
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- Email Input -->
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="usermail@example.com"
+          />
+          <!-- Error Message for Email -->
+          <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="error-message">
+            <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</small>
+            <small *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+          </div>
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+          <div class="label-row">
+            <label for="password">Password</label>
+            <a href="/reset-password" class="forgot-password">Forgot password?</a>
+          </div>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="●●●●●●●●"
+          />
+          <!-- Error Message for Password -->
+          <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-message">
+            <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+            <small *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 8 characters.</small>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" [disabled]="loginForm.invalid" class="btn-login">
+          Sign in
+        </button>
+      </form>
+
+      <div class="signup-link">
+        New to Sportify? <a href="#">Create an account.</a>
       </div>
     </div>
-
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        formControlName="password"
-        class="form-control"
-        [class.is-invalid]="loginForm.controls['password'].touched && loginForm.controls['password'].invalid"
-      />
-      <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']" class="invalid-feedback">
-        Password is required
-      </div>
-    </div>
-
-    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">
-      Login
-    </button>
-  </form>
+  </div>
 </div>

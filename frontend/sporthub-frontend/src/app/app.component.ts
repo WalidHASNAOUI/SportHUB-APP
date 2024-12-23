@@ -10,4 +10,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'sporthub-frontend';
+  isDarkMode = true; 
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    const theme = this.isDarkMode ? 'dark-theme' : 'light-theme';
+    document.body.className = theme;
+  }
 }

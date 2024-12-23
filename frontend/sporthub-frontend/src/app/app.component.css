@@ -1,9 +1,17 @@
+/* App container styles */
 .app-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height */
+  background-color: var(--background-color); /* Ensure dark theme */
+}
+
+/* Center the content */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensure it adapts to the container */
+  max-width: 400px;
+}

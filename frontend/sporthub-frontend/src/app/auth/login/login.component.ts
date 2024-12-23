@@ -24,7 +24,7 @@ export class LoginComponent
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
 
@@ -34,8 +34,10 @@ export class LoginComponent
     }
 
     const formData = this.loginForm.value;
+    console.log(formData);
 
-    this.http.post('http://localhost:5000/api/users/login', formData).subscribe({
+    this.http.post('http://localhost:5000/api/users/login', formData)
+     .subscribe({
       next: (response: any) => {
         // Handle successful login
         localStorage.setItem('authToken', response.token);
