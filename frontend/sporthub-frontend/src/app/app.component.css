@@ -1,17 +1,18 @@
 /* App container styles */
 .app-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full height */
+  flex-direction: column; /* Allow for vertical stacking */
+  min-height: 100vh; /* Ensure full height */
   background-color: var(--background-color); /* Ensure dark theme */
 }
 
-/* Center the content */
+/* Adjust the content wrapper */
 .content-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* Ensure it adapts to the container */
-  max-width: 400px;
+  flex-direction: column; /* Ensure content stacks properly */
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Optional: Add a larger maximum width if needed */
+  margin: 0 auto; /* Center the content */
+  padding: 1rem; /* Add some padding for spacing */
+  box-sizing: border-box; /* Include padding in width calculations */
 }

@@ -1,0 +1,32 @@
+<div class="header-container">
+  <!-- Left Section: Logo -->
+  <div class="logo">
+    <img src="images/logoPNG.png" alt="Sportify Logo" />
+  </div>
+
+  <!-- Right Section: Menu Items -->
+  <div class="menu-items">
+    <div class="menu-item">
+      <img src="assets/notification-icon.svg" alt="Notifications" class="icon" />
+      <span>Notifications</span>
+    </div>
+    <div class="menu-item profile-dropdown">
+      <div class="profile" (click)="toggleDropdown()">
+        <span class="profile-initial">W</span>
+        <img src="assets/dropdown-arrow.svg" alt="Dropdown" class="icon" />
+      </div>
+      <!-- Dropdown Menu -->
+      <ul class="dropdown-menu" *ngIf="dropdownVisible">
+        <li (click)="goToProfile()">
+          <img src="assets/profile-icon.svg" alt="Profile Icon" class="dropdown-icon" />
+          My Profile
+        </li>
+        <li (click)="logOut()">
+          <img src="assets/logout-icon.svg" alt="Log Out Icon" class="dropdown-icon" />
+          Log Out
+        </li>
+      </ul>
+    </div>
+    <button class="logout-button" (click)="logOut()">Log Out</button>
+  </div>
+</div>

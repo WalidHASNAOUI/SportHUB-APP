@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators,  ValidatorFn, AbstractControl} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
   standalone: true
@@ -21,8 +21,18 @@ export class SignupComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-    });
+    },
+    { validators: this.passwordsMatchValidator } // Add the custom validator to the form group
+  );
   }
+
+  // Custom validator to check if passwords match
+  passwordsMatchValidator: ValidatorFn = (control: AbstractControl) => {
+    const password = control.get('password')?.value;
+    const confirmPassword = control.get('confirmPassword')?.value;
+
+    return password === confirmPassword ? null : { passwordsMismatch: true };
+  };
 
   onSubmit() {
     if (this.signupForm.invalid || this.signupForm.value.password !== this.signupForm.value.confirmPassword) {

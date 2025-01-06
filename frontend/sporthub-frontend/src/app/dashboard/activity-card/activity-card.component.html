@@ -1,0 +1,10 @@
+<div class="activity-card">
+  <img [src]="activity.map" alt="Activity Image" />
+  <h3>{{ activity.title }}</h3>
+  <p>{{ activity.description }}</p>
+  <div class="stats">
+    <span>Distance: {{ activity.distance }} km</span>
+    <span>Time: {{ activity.time }}</span>
+    <span>Pace: {{ activity.pace }} /km</span>
+  </div>
+</div>

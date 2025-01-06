@@ -13,6 +13,9 @@ const router = express.Router();
 // User Login 
 router.post('/login', loginUser)
 
+// User Logout
+// router.post('/logout', logoutUser);
+
 // Create a new user
 router.post('/signup', createUser);
 

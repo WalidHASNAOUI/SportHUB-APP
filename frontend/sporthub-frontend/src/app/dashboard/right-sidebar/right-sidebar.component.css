@@ -1,0 +1,84 @@
+.suggested-friends-container {
+  background-color: var(--input-bg-color); 
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.suggested-friends-container h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.friend-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  border-bottom: 1px solid #444; /* Subtle divider */
+  padding-bottom: 1rem;
+}
+
+.friend-card:last-child {
+  border-bottom: none; /* Remove border for the last card */
+}
+
+.friend-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Circular image */
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.friend-info {
+  flex: 1; /* Allow text to grow */
+}
+
+.friend-info h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.friend-info p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #aaaaaa; /* Lighter text for additional info */
+}
+
+.follow-button {
+  background-color: #f05a28; /* Bright orange for contrast */
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.follow-button:hover {
+  background-color: #d04e23; /* Slightly darker orange on hover */
+}
+
+.invite-button {
+  display: block;
+  width: 100%; /* Full width */
+  background-color: #ffffff; /* Light background */
+  color: #333;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.invite-button:hover {
+  background-color: #dddddd; /* Subtle hover effect */
+}

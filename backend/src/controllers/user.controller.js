@@ -32,6 +32,12 @@ export const loginUser = async (req, res) => {
   }
 };
 
+//Logout user 
+// export const logoutUser = async (req, res) => {
+
+// }
+
+
 // Create a new user
 export const createUser = async (req, res) => {
   try {
