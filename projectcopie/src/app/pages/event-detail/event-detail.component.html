@@ -1,0 +1,11 @@
+<div class="event-detail" *ngIf="event; else loading">
+  <h1>{{ event.title }}</h1>
+  <p><strong>Date:</strong> {{ event.date | date: 'mediumDate' }}</p>
+  <p>{{ event.description }}</p>
+
+  <button (click)="subscribeToEvent()">Subscribe</button>
+</div>
+
+<ng-template #loading>
+  <p>Loading event details...</p>
+</ng-template>

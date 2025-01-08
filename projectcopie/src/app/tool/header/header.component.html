@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="logo">
+    <a routerLink="/postfeed" class="logo-link">Sportify</a>
+  </div>
+  <div class="search">
+    <input type="text" placeholder="Rechercher...">
+  </div>
+  <div class="profile">
+    <button class="material-icons" (click)="toggleFriendList()">person_add</button>
+    <button class="material-icons" (click)="toggleMessagePopup()">message</button>
+    <button class="material-icons" (click)="toggleNotifications()">notifications</button>
+    <button class="material-icons" routerLink="/profilepage">account_circle</button>
+  </div>
+</header>
+<app-friend-list *ngIf="isFriendListVisible" (close)="toggleFriendList()"></app-friend-list>
+<app-messaging *ngIf="isMessagePopupVisible" (close)="toggleMessagePopup()"></app-messaging>
+<app-notification *ngIf="isNotificationVisible" (close)="toggleNotifications()"></app-notification>
+
+

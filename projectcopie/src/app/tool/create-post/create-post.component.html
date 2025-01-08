@@ -1,0 +1,60 @@
+<div class="overlay">
+  <div class="scrollable-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <div class="button-container">
+            <button mat-button color="primary" (click)="selectOption('post')">Create Post</button>
+            <button mat-button color="accent" (click)="selectOption('event')">Create New Event</button>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <ng-container *ngIf="selectedOption === 'post'">
+        <div class="content-section">
+          <textarea placeholder="Type your message..." class="text-input" [(ngModel)]="content"></textarea>
+          <div *ngIf="selectedImagePreview" class="image-preview">
+            <img [src]="selectedImagePreview" alt="Post Preview" />
+          </div>
+          <div class="action-section">
+            <label for="photo-upload" mat-button color="warn" class="upload-label">
+              <input
+                #photoSelector
+                (change)="onPhotoSelected(photoSelector)"
+                id="photo-upload"
+                type="file"
+                accept="image/*"
+                hidden
+              />
+              <mat-icon>insert_photo</mat-icon> Upload Photo
+            </label>
+            <button mat-button color="warn" class="action-button" (click)="createPost()">Post</button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="selectedOption === 'event'">
+        <div class="content-section">
+          <input type="text" placeholder="Event Title" class="text-input" [(ngModel)]="eventTitle" />
+          <textarea placeholder="Event Description" class="text-input" [(ngModel)]="eventDescription"></textarea>
+          <input type="date" class="text-input" [(ngModel)]="eventDate" />
+          <div *ngIf="selectedEventImagePreview" class="image-preview">
+            <img [src]="selectedEventImagePreview" alt="Event Preview" />
+          </div>
+          <div class="action-section">
+            <label for="event-photo-upload" mat-button color="accent" class="upload-label">
+              <input
+                #eventPhotoSelector
+                (change)="onEventPhotoSelected(eventPhotoSelector)"
+                id="event-photo-upload"
+                type="file"
+                accept="image/*"
+                hidden
+              />
+              <mat-icon>insert_photo</mat-icon> Upload Event Image
+            </label>
+            <button mat-button color="accent" class="action-button" (click)="createEvent()">Create Event</button>
+          </div>
+        </div>
+      </ng-container>
+    </mat-card>
+  </div>
+</div>
