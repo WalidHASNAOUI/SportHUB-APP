@@ -1,11 +1,11 @@
 Social Network Project
 ----------------------------------------------------------
-Front-End
+Front-End:
 •	Angular 15
 •	HTML5, CSS3
 •	TypeScript
 •	Angular Material
-Back-End
+Back-End:
 •	Node.js
 •	Express.js
 •	Multer for file uploads
