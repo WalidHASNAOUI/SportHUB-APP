@@ -5,6 +5,7 @@ Front-End:
 - HTML5, CSS3
 - TypeScript
 - Angular Material
+
 Back-End:
 - Node.js
 - Express.js
