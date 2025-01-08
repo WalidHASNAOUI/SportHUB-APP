@@ -1,0 +1,134 @@
+.friend-list-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease; 
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .friend-list {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px; 
+    width: 350px;
+    max-height: 450px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+  }
+  
+  .friend-list h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .friend-list-scrollable {
+    max-height: 300px; 
+    overflow-y: auto;
+    border: 1px solid #f0f0f0; 
+    border-radius: 12px; 
+    padding: 10px;
+    background: #fafafa; 
+    scrollbar-width: thin; 
+  }
+  
+  .friend-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .friend-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 8px;
+    background: #fff;
+    border-radius: 8px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05); 
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  }
+  
+  .friend-list li:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .friend-list button {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .add-friend-btn {
+    background: #4caf50; 
+    color: white;
+  }
+  
+  .add-friend-btn:hover {
+    background: #388e3c; 
+  }
+  
+  .add-friend-btn:disabled {
+    background: #d3d3d3;
+    cursor: not-allowed;
+  }
+  
+  .close-btn {
+    background: #f44336; 
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    align-self: center; 
+    transition: background-color 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    background: #d32f2f; 
+  }
+  
+  .friend-list-scrollable::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .friend-list-scrollable::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 4px;
+  }
+  
+  .friend-list-scrollable::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
+  }
+  
+  .friend-list-scrollable::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  

@@ -1,0 +1,18 @@
+<div class="friend-list-container">
+  <div class="friend-list">
+    <h3>Ajouter des amis</h3>
+    <div class="friend-list-scrollable">
+      <ul>
+        <li *ngFor="let friend of friends">
+          <span>{{ friend.name }}</span>
+          <button 
+            [disabled]="friend.added" 
+            (click)="addFriend(friend)">
+            {{ friend.added ? 'Invitation envoyée' : 'Ajouter' }}
+          </button>
+        </li>
+      </ul>
+    </div>
+    <button (click)="closeFriendList()">Fermer</button>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div *ngIf="isMessagingVisible" class="messaging-container">
+  <div *ngIf="!selectedMessage" class="message-list">
+    <button class="close-button" (click)="closeMessaging()">
+      <span class="material-icons">close</span>
+    </button>
+    <h3>Discussion</h3>
+    <ul>
+      <li *ngFor="let message of messageHistory" (click)="selectMessage(message)">
+        <strong>{{ message.sender }}:</strong>
+        <span>{{ message.preview }}</span>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="selectedMessage" class="message-conversation">
+    <button class="close-button" (click)="backToList()">
+      <span class="material-icons">close</span>
+    </button>
+    <h3>Discussion avec {{ selectedMessage.sender }}</h3>
+    <div class="conversation">
+      <div
+        *ngFor="let line of selectedMessage.conversation"
+        [ngClass]="{'from-me': line.from === 'Vous', 'from-them': line.from !== 'Vous'}"
+        class="message-line"
+      >
+        <p>{{ line.text }}</p>
+      </div>
+    </div>
+    <div class="send-message">
+      <input
+        type="text"
+        [value]="currentMessage"
+        (input)="updateMessage($event)"
+        placeholder="Écrire un message..."
+      />
+      <button (click)="sendMessage()">Envoyer</button>
+    </div>
+  </div>
+</div>
