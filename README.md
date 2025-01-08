@@ -1,6 +1,7 @@
 Social Network Project
 ----------------------------------------------------------
 Front-End:
+
 •	Angular 15
 •	HTML5, CSS3
 •	TypeScript
