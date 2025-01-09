@@ -1,4 +1,4 @@
-SportHUB-APP Setup Guide
+- SportHUB-APP Setup Guide
 
 Welcome to the SportHUB-APP project! This guide will walk you through setting up the project for both backend and frontend environments. Follow the steps carefully to get everything running smoothly.
 
