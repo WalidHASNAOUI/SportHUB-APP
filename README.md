@@ -1,68 +1,87 @@
-                                                            SportHUB-APP Setup Guide
+# SportHUB-APP Setup Guide
 
----------------------------------
-Welcome to the SportHUB-APP project! This guide will walk you through setting up the project for both backend and frontend environments. Follow the steps carefully to get everything running smoothly.
+Welcome to the **SportHUB-APP** project! This guide will help you set up the project for both backend and frontend environments. Follow these steps to get everything running smoothly. If you encounter any issues, refer to the troubleshooting section or documentation links provided.
 
-🚀 Backend Setup
+---
 
-Prerequisites
+## 🚀 Backend Setup
 
-Ensure that Node.js is installed on your system.
+### Prerequisites
+- Ensure that **Node.js** is installed on your system. You can download it from [Node.js Official Website](https://nodejs.org/).
 
-Installation Steps
+### Installation Steps
 
-Navigate to the backend folder:
+1. Navigate to the backend folder:
+   ```bash
+   cd C:\Users\samis\Desktop\SportHUB-APP-main\backend
+   ```
 
-cd C:\Users\samis\Desktop\SportHUB-APP-main\backend
+2. Install all backend dependencies:
+   ```bash
+   npm install bcrypt body-parser cors dotenv express express-validator jsonwebtoken mongoose multer
+   ```
 
-Install all backend dependencies:
+3. Verify that the `node_modules` folder has been created.
 
-npm install bcrypt body-parser cors dotenv express express-validator jsonwebtoken mongoose multer
+4. Start the backend server:
+   ```bash
+   node server.js
+   ```
 
-Verify that the node_modules folder has been created.
+---
 
-Start the backend server:
+## 🌐 Frontend Setup
 
-node server.js
+### Prerequisites
+- **Node.js** must be installed.
+- **Angular CLI** installed globally. If it’s not installed, run:
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-🌐 Frontend Setup
+### Installation Steps
 
-Prerequisites
+1. Navigate to the frontend folder:
+   ```bash
+   cd C:\Users\samis\Desktop\SportHUB-APP-main\frontend
+   ```
 
-Node.js must be installed.
+2. Install all frontend development dependencies:
+   ```bash
+   npm install @angular-devkit/build-angular @angular/cli @angular/compiler-cli @types/jasmine jasmine-core karma karma-chrome-launcher karma-coverage karma-jasmine karma-jasmine-html-reporter typescript --save-dev
+   ```
 
-Angular CLI installed globally. If not, install it with:
+3. Verify that the `node_modules` folder has been created.
 
-npm install -g @angular/cli
+4. Serve the Angular application:
+   ```bash
+   ng serve
+   ```
 
-Installation Steps
+---
 
-Navigate to the frontend folder:
+## 📌 Notes
 
-cd C:\Users\samis\Desktop\SportHUB-APP-main\frontend
+- Ensure both backend and frontend dependencies are installed before attempting to run the application.
+- If you encounter issues:
+  1. Delete the `node_modules` folder and `package-lock.json` file.
+  2. Re-run the installation commands for both backend and frontend.
 
-Install all frontend development dependencies:
+- For detailed troubleshooting, refer to the official documentation of:
+  - [Node.js](https://nodejs.org/)
+  - [Express](https://expressjs.com/)
+  - [Angular](https://angular.io/)
 
-npm install @angular-devkit/build-angular @angular/cli @angular/compiler-cli @types/jasmine jasmine-core karma karma-chrome-launcher karma-coverage karma-jasmine karma-jasmine-html-reporter typescript --save-dev
+---
 
-Verify that the node_modules folder has been created.
+## 🤝 Contributing
+We’re always open to contributions! Feel free to:
+- Fork the repository
+- Create a pull request with your changes
+- Raise issues or suggest improvements
 
-Serve the Angular application:
+---
 
-ng serve
+## 🎉 Enjoy Coding!
+We hope you have a great experience working with SportHUB-APP. If you have any questions or need further assistance, don’t hesitate to reach out!
 
-📌 Notes
-
-Ensure that both backend and frontend dependencies are installed before attempting to run the application.
-
-If you encounter issues, try these steps:
-
-Delete the node_modules folder and package-lock.json file.
-
-Re-run the installation commands.
-
-For detailed troubleshooting, refer to the documentation of the respective frameworks (Node.js, Express, Angular).
-
-🎉 Enjoy Coding!
-
-Feel free to contribute, raise issues, or suggest improvements for the SportHUB-APP project!
